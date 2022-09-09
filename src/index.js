@@ -6,14 +6,16 @@ function exchange() {
     .then(function(response) {
       if (response.conversion_rates) {
         printElements(response);
+        console.log(response);
       } else {
+        console.log(response);
         printError(response);
       }
     });
 }
 
 function printElements(response) {
-  document.querySelector('#answer').innerText = `${response.conversion_rates}`;
+  document.querySelector('#answer').innerText = `${response.conversion_rates.AED}`;
 
 }
 
