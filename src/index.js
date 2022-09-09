@@ -19,16 +19,18 @@ function printElements(response) {
   for (const option of exchangeSelectForm.options) {
     optionArray.push(option.value);
   }
-  console.log("optionArray" + optionArray);
-  let resultArray = optionArray.forEach (function(option) {
+  let resultArray = [];
+  optionArray.forEach (function(option) {
     if (exchangeSelection !== option) {
-      optionArray.splice(0, 1);
+      resultArray.push(option);
     }
   });
-  console.log("resultArray" + resultArray);
-    if (resultArray.length === exchangeSelection.length)
-  
-  document.querySelector('#answer').innerText = amountInput * (response.conversion_rates[`${exchangeSelection}`]);
+
+  if (optionArray.length === resultArray.length) {
+    document.querySelector('#answer').innerText = `Sorry, the selected currency is not currently supported by this application`;
+  } else { 
+    document.querySelector('#answer').innerText = amountInput * (response.conversion_rates[`${exchangeSelection}`]);
+  }
 }
 
 function printError(error) {
