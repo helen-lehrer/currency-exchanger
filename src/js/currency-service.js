@@ -1,10 +1,4 @@
-export class Currency {
-  constructor (dollar) {
-    this.dollar = dollar;
-  }
-}
-
-export class CurrencyExchange {
+export default class Currency {
   static exchange(baseCurrency) {
     return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${baseCurrency}`)
       .then(function(response) {

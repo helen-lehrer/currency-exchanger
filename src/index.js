@@ -1,8 +1,7 @@
-import { Currency } from './../src/js/currency-service.js';
-import { CurrencyExchange } from './../src/js/currency-service.js';
+import Currency from './../src/js/currency-service.js';
 
 export function exchange(baseCurrency) {
-  CurrencyExchange.exchange(baseCurrency)
+  Currency.exchange(baseCurrency)
     .then(function(response) {
       if (response.conversion_rates) {
         printElements(response);
@@ -26,9 +25,6 @@ function printError(error) {
 const handleFormSubmission = () => {
   let baseCurrency = document.querySelector('#base-currency-select').value;
   exchange(baseCurrency);
-
-  let currency = new Currency();
-  currency.dollar = 5;
 };
 
 document.querySelector('#calculate').addEventListener("click", handleFormSubmission);
