@@ -80,7 +80,7 @@ $ git touch .env
 3. #### Populate the first line of the **.env** file with your API key information:
 
 ``` 
-API_KEY=<enter your personal API key here>`
+API_KEY=<enter your personal API key here>
 ```
 
 *Note: The <> are there for emphasis, do not add <> in your code!*
@@ -109,7 +109,7 @@ module.exports = {
 
 ```
 
-To access the environmental variable in our application, preface the environmental variable with process.env:
+When the application requires the key, it is prefaced with process.env like so:
 
 ```
 process.env.API_KEY
