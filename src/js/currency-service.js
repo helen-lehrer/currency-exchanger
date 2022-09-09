@@ -5,17 +5,18 @@ export class Currency {
 }
 
 export class CurrencyExchange {
-  static async exchange() {
-    try {
-      const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
-      const jsonifiedResponse = await response.json();
-      if (!response.ok) {
-        const errorMessage = `${response.status} ${response.statusText} ${jsonifiedResponse.message}`;
+  static exchange() {
+    return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
+      .then(function(response) {
+        if (!response.ok) {
+          const errorMessage = `${response.status} ${response.statusText}`;
         throw new Error(errorMessage);
-      }
-      return jsonifiedResponse;
-    } catch(error) {
-      return error;
+        } else {
+          return response.json();
+        }
+      })      
+      .catch(function(error) {
+        return error;
+      });
     }
-  }
 }

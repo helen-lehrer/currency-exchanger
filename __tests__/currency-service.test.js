@@ -11,7 +11,7 @@ describe('Currency', () => {
 
 describe('CurrencyExchange', () => {
   test ('should create a CurrencyExchange object type with a static method exchange that returns the Jsonified response or an error', () => {
-    expect(CurrencyExchange.exchange()).toEqual();
+    expect(CurrencyExchange.exchange().result).toEqual("success");
   });
 });
 
