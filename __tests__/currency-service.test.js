@@ -7,18 +7,11 @@ describe('Currency', () => {
     expect(currency.dollar).toEqual(1);
   });
 
-
-
 });
 
 describe('CurrencyExchange', () => {
-  test ('should create a CurrencyExchange object type with a static method exchange that returns undefined', () => {
-    expect(CurrencyExchange.exchange()).toEqual(undefined);
+  test ('should create a CurrencyExchange object type with a static method exchange that returns the Jsonified response or an error', () => {
+    expect(CurrencyExchange.exchange()).toEqual();
   });
-
-  test ('should fetch an API request and return the Jsonified response or an error', () => {
-    expect(CurrencyExchange.exchange(1, "CAN")).toEqual(1.3168);
-  });
-
-
 });
+
