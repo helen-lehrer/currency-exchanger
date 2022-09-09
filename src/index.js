@@ -13,8 +13,22 @@ export function exchange(baseCurrency) {
 
 function printElements(response) {
   let amountInput = document.querySelector('#amount-input').value; 
-  let exchangeTo = document.querySelector('#exchange-select').value; 
-  document.querySelector('#answer').innerText = amountInput * (response.conversion_rates[`${exchangeTo}`]);
+  let exchangeSelectForm = document.querySelector('#exchange-select');
+  let exchangeSelection = document.querySelector('#exchange-select').value;
+  let optionArray = [];
+  for (const option of exchangeSelectForm.options) {
+    optionArray.push(option.value);
+  }
+  console.log("optionArray" + optionArray);
+  let resultArray = optionArray.forEach (function(option) {
+    if (exchangeSelection !== option) {
+      optionArray.splice(0, 1);
+    }
+  });
+  console.log("resultArray" + resultArray);
+    if (resultArray.length === exchangeSelection.length)
+  
+  document.querySelector('#answer').innerText = amountInput * (response.conversion_rates[`${exchangeSelection}`]);
 }
 
 function printError(error) {
