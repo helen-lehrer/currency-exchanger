@@ -33,7 +33,7 @@
 
 Module-Bundler: webpack and webpack-cli
 
-Plugins: babel, clean-webpack, eslint-webpack-plugin, html-webpack-plugin, jest, webpack-dev-server, bootstrap, eslint
+Plugins: babel, clean-webpack, eslint-webpack-plugin, html-webpack-plugin, jest, webpack-dev-server, bootstrap, eslint, dotenv-webpack
 
 Loaders: css-loader, file-loader, html-loader, style-loader
 
@@ -61,9 +61,11 @@ Next, the `name` and `version` of the project at the top of `package.json` must 
 
 #### API setup:
 
-This application requires you to use the following [exchange rate API](https://www.exchangerate-api.com/)in order to utilize the most recent exchange rates.
+This application requires you to use the following [exchange rate API](https://www.exchangerate-api.com/) in order to utilize the most recent exchange rates.
 
-1. Navigate to the site to get a free key. Sign up to get a free key using your email address. Once you are in the dashboard, navigate to the **API Keys** section. You can find your API key here.
+1. #### Navigate to the site.
+
+Sign up to get a free key using your email address. Once you are in the dashboard, navigate to the **API Keys** section. You will find your unique API key there.
 
 2. #### Create a **.env** file in the root directory of your project:
 ```bash
@@ -77,8 +79,9 @@ $ git touch .env
 
 3. #### Populate the first line of the **.env** file with your API key information:
 
-# code block 
+``` 
 API_KEY=<enter your personal API key here>`
+```
 
 *Note: The <> are there for emphasis, do not add <> in your code!*
 
@@ -91,7 +94,7 @@ $ npm install dotenv-webpack --save-dev
 
 We need to first require it and then add it to the plugins array.
 
-# code block
+```js
 ...
 const Dotenv = require('dotenv-webpack');
 
@@ -103,12 +106,14 @@ module.exports = {
   ],
   ...
   }
-};
+
+```
 
 To access the environmental variable in our application, preface the environmental variable with process.env:
 
-# code block
+```
 process.env.API_KEY
+```
 
 #### Enter this command into your terminal to build the project using webpack: 
 ```bash
