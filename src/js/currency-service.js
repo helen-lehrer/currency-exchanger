@@ -1,4 +1,5 @@
 export class Currency {
-  constructor (dollarInput) {
+  constructor (dollar) {
+    this.dollar = dollar;
   };
 }
