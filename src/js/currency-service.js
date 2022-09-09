@@ -3,3 +3,9 @@ export class Currency {
     this.dollar = dollar;
   };
 }
+
+export class CurrencyExchange {
+  static exchange(currencyInput) {
+
+  }
+}
