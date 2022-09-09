@@ -1,14 +1,13 @@
 import { Currency } from './../src/js/currency-service.js';
 import { CurrencyExchange } from './../src/js/currency-service.js';
 
-function exchange() {
-  CurrencyExchange.exchange()
+
+export function exchange(baseCurrency) {
+  CurrencyExchange.exchange(baseCurrency)
     .then(function(response) {
       if (response.conversion_rates) {
         printElements(response);
-        console.log(response);
       } else {
-        console.log(response);
         printError(response);
       }
     });
@@ -25,9 +24,10 @@ function printError(error) {
 }
 
 const handleFormSubmission = () => {
-  exchange();
+  let baseCurrency = "USD";
+  exchange(baseCurrency);
   let currency = new Currency();
   currency.dollar = 5;
-}
+};
 
 document.querySelector('#calculate').addEventListener("click", handleFormSubmission);

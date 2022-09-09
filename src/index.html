@@ -4,11 +4,24 @@
     <title>Currency Exchanger</title>
     <body>
       <form id="currency-form>">
-        <label for="currency-input">
-        <input id="currency-input" type="number">
-        </label>
+        <label for="amount-input">Amount:</label>
+        <input id="amount-input" type="number">
+        <label for="base-currency-input">From:</label>
+        <select name="base-currency-select" id="base-currency-select">
+          <option value="USD">USD</option>
+        </select>
+        <label for="exchange-select">To:</label>
+        <select name="exchange-select" id="exchange-select">
+          <option value="EUR">EUR: Euro</option>
+          <option value="AUD">AUD: Australian Dollar</option>
+          <option value="BRL">BRL: Brazillian Real</option>
+          <option value="CAN">CAN: Canadian Dollar</option>
+          <option value="CHF">CHF: Swiss Franc</option>
+          <option value="CNY">CNY: Chinese Yuan</option>
+        </select> 
         <button type="button" id="calculate">Calculate</button>
       </form>
+  
       <div>
         <p id="answer">
 
