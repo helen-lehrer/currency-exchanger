@@ -5,7 +5,7 @@ export class Currency {
 }
 
 export class CurrencyExchange {
-  static exchange(currencyInput) {
+  static exchange(currencyInput,conversionType) {
 
   }
 }
