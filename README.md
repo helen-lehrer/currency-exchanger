@@ -85,30 +85,6 @@ API_KEY=<enter your personal API key here>
 
 *Note: The <> are there for emphasis, do not add <> in your code!*
 
-4. #### Install the **dotenv-webpack** plugin to make our environmental variables available inside our application:
-
-```bash
-$ npm install dotenv-webpack --save-dev
-```
-5. #### Next, we need to edit **webpack.config.js**:
-
-We need to first require it and then add it to the plugins array.
-
-```js
-...
-const Dotenv = require('dotenv-webpack');
-
-module.exports = {
-  ...
-  plugins: [
-    ...
-    new Dotenv()
-  ],
-  ...
-  }
-
-```
-
 When the application requires the key, it is prefaced with process.env like so:
 
 ```

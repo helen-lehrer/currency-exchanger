@@ -1,6 +1,6 @@
 import Currency from './../src/js/currency-service.js';
 
-export function exchange(baseCurrency) {
+function exchange(baseCurrency) {
   Currency.exchange(baseCurrency)
     .then(function(response) {
       if (response.conversion_rates) {
@@ -16,6 +16,7 @@ function printElements(response) {
   let exchangeSelectForm = document.querySelector('#exchange-select');
   let exchangeSelection = document.querySelector('#exchange-select').value;
   let optionArray = [];
+
   for (const option of exchangeSelectForm.options) {
     optionArray.push(option.value);
   }
@@ -25,7 +26,6 @@ function printElements(response) {
       resultArray.push(option);
     }
   });
-
   if (optionArray.length === resultArray.length) {
     document.querySelector('#answer').innerText = `Sorry, the selected currency is not currently supported by this application`;
   } else { 
