@@ -1,8 +1,14 @@
-# Template Repo
+# Currency Exchanger
 
-#### A template development environment using node.js and NPM for ES6 vanilla Javascript projects.
+#### A Currency Exchange Application
+
+#### [Link to Site](https://helen-lehrer.github.io/currency-exchanger)
 
 #### By Helen Lehrer
+
+## Description
+
+ A currency exchange application where the user can input an amount, chose a base currency, and then choose which currency it should be converted to (such as francs, marks, rupees, and so on). To determine the most recent exchange rate, the application makes an API call to an exchange rate API (the API offers a free key).
 
 ## Technologies Used
 
@@ -23,8 +29,7 @@
 * webpack-dev-server: 4.10.1
 * bootstrap: ^5.2.0
 * eslint: ^8.23.0
-
-## Description
+* dotenv-webpack: ^8.0.1
 
 Module-Bundler: webpack and webpack-cli
 
@@ -40,15 +45,70 @@ Loaders: css-loader, file-loader, html-loader, style-loader
 
 ## Setup/Installation Requirements
 
-This repo is compatible with Node v16.16.0 and npm v 8.11.0. 
+This repo is compatible with Node v16.16.0 and npm v 8.11.0.
 
-The `name` and `version` of the project at the top of `package.json` must be updated to the current project name and version.
-
+#### Enter this command into your terminal to clone the project: 
+```bash
+$ git clone https://github.com/helen-lehrer/currency-exchanger/
+```
 
 #### Enter this command into your terminal to install all dependencies: 
 ```bash
 $ npm install
 ```
+
+Next, the `name` and `version` of the project at the top of `package.json` must be updated to the current project name and version.
+
+#### API setup:
+
+This application requires you to use the following [exchange rate API](https://www.exchangerate-api.com/)in order to utilize the most recent exchange rates.
+
+1. Navigate to the site to get a free key. Sign up to get a free key using your email address. Once you are in the dashboard, navigate to the **API Keys** section. You can find your API key here.
+
+2. #### Create a **.env** file in the root directory of your project:
+```bash
+$ git cd ~/desktop/currency-exchanger
+``` 
+```bash
+$ git touch .env
+``` 
+
+*Note: Add .env to your .gitignore now and push it if you are pushing code to a remote repository to protect your API Key!*
+
+3. #### Populate the first line of the **.env** file with your API key information:
+
+# code block 
+API_KEY=<enter your personal API key here>`
+
+*Note: The <> are there for emphasis, do not add <> in your code!*
+
+4. #### Install the **dotenv-webpack** plugin to make our environmental variables available inside our application:
+
+```bash
+$ npm install dotenv-webpack --save-dev
+```
+5. #### Next, we need to edit **webpack.config.js**:
+
+We need to first require it and then add it to the plugins array.
+
+# code block
+...
+const Dotenv = require('dotenv-webpack');
+
+module.exports = {
+  ...
+  plugins: [
+    ...
+    new Dotenv()
+  ],
+  ...
+  }
+};
+
+To access the environmental variable in our application, preface the environmental variable with process.env:
+
+# code block
+process.env.API_KEY
 
 #### Enter this command into your terminal to build the project using webpack: 
 ```bash
