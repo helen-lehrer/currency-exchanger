@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.0",
+    "dotenv-webpack": "^8.0.1",
     "eslint": "^8.23.0"
   }
 }
